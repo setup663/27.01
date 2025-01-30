@@ -1,0 +1,41 @@
+CREATE TABLE agenttype (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(150),
+    Image VARCHAR(100)
+);
+
+CREATE TABLE agent (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(150),
+    AgentTypeID INT,
+    FOREIGN KEY (AgentTypeID) REFERENCES agenttype(ID),
+    Address VARCHAR(300),
+    INN VARCHAR(12),
+    KPP VARCHAR(9),
+    DirectorName VARCHAR(100),
+    Phone VARCHAR(40),
+    Email VARCHAR(255),
+    Logo VARCHAR(100),
+    Priority INT
+);
+
+CREATE TABLE product (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100),
+    ArticleNumber VARCHAR(10),
+    Description LONGTEXT,
+    Image VARCHAR(100),
+    ProductionPersonCount INT,
+    ProductionWorkshopNumber INT,
+    MinCostForAgent DECIMAL(10, 2)
+);
+
+CREATE TABLE agent_product (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    AgentID INT,
+    ProductID INT,
+    Quantity INT,
+    PurchaseDate DATETIME,
+    FOREIGN KEY (AgentID) REFERENCES agent(ID),
+    FOREIGN KEY (ProductID) REFERENCES product(ID)
+);

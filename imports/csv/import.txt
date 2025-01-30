@@ -1,0 +1,7 @@
+1)agenttype(ID, Title)
+
+2)agent(ID, AgentTypeID, Title, Email, Phone, Logo, Address, Priority, DirectorName, INN, KPP)
+
+3)product(ID, Title, ArticleNumber)
+
+4)agent_product(ProductID, AgentID, PurchaseDate, Quantity)
